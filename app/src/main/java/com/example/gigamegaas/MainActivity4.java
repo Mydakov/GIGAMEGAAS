@@ -1,13 +1,19 @@
 package com.example.gigamegaas;
 
+
+
+
+import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.View;
+import android.widget.PopupMenu;
 
 public class MainActivity4 extends AppCompatActivity {
 
@@ -26,4 +32,28 @@ public class MainActivity4 extends AppCompatActivity {
 
         }
     }
+    public void onClick(View v) {
+        PopupMenu pop = new PopupMenu(MainActivity4.this, v);
+        pop.getMenuInflater().inflate(R.menu.main_menu, pop.getMenu());
+        pop.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+            @Override
+
+            public boolean onMenuItemClick(MenuItem menuItem) {
+                int id = menuItem.getItemId();
+                if (id == R.id.one) {
+                    return true;
+                }
+                if (id == R.id.two) {
+                    return true;
+                }
+                if (id == R.id.three) {
+                    return true;
+                }
+                return false;
+
+            }
+        });
+        pop.show();
+    }
+
 }
